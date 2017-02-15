@@ -8,10 +8,10 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
+        <project.build.finalName>ForexCommissionCalculator</project.build.finalName>
     </properties>
 
     <build>
@@ -31,12 +31,22 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.6</version>
                 <configuration>
-                    <finalName>ForexCommissionCalculator</finalName>
+                    <finalName>${project.build.finalName}</finalName>
                     <archive>
                         <manifest>
                             <mainClass>io.codecrafts.forexcommissioncalculator.Main</mainClass>
                         </manifest>
                     </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.zenjava</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>8.8.3</version>
+                <configuration>
+                    <vendor>Codecrafts IO</vendor>
+                    <appName>${project.build.finalName}</appName>
+                    <mainClass>io.codecrafts.forexcommissioncalculator.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>
