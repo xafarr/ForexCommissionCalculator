@@ -48,11 +48,6 @@ public class ForexCommissionCalculator {
 		this.amount = amount;
 	}
 	
-	private double getTotalAmountWithoutApplyingCommission() {
-		double buyPrice = getSpotPrice() + (getPips() / 10000);
-		return (getAmount() / buyPrice);
-	}
-	
 	private double getCommissionAmount(double withoutCommValue) {
 		return (getCommPerc() / 100) * withoutCommValue;
 	}
