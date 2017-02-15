@@ -16,6 +16,9 @@ public class ForexCommissionCalculator {
 		this.amount = amount;
 	}
 	
+	public ForexCommissionCalculator() {
+	}
+	
 	private double getSpotPrice() {
 		return spotPrice;
 	}
@@ -53,28 +56,42 @@ public class ForexCommissionCalculator {
 	}
 	
 	public double getTotalAmountWhenBuyingFromCustomer() {
-		double buyPrice = getSpotPrice() + (getPips() / 10000);
-		double withoutCommValue = getAmount() / buyPrice;
-		double commission = getCommissionAmount(withoutCommValue);
-		double withCommValue = withoutCommValue - commission;
-		return Math.round(withCommValue);
+		try {
+			double buyPrice = getSpotPrice() + (getPips() / 10000);
+			double withoutCommValue = getAmount() / buyPrice;
+			double commission = getCommissionAmount(withoutCommValue);
+			return withoutCommValue - commission;
+		} catch (Exception e) {
+			return 0.0;
+		}
 	}
 	
 	public double getTotalAmountWhenSellingToCustomer() {
-		double sellPrice = getSpotPrice() - (getPips() / 10000);
-		double withoutCommValue = getAmount() / sellPrice;
-		double commission = getCommissionAmount(withoutCommValue);
-		double withCommValue = withoutCommValue + commission;
-		return Math.round(withCommValue);
+		try {
+			double sellPrice = getSpotPrice() - (getPips() / 10000);
+			double withoutCommValue = getAmount() / sellPrice;
+			double commission = getCommissionAmount(withoutCommValue);
+			return withoutCommValue + commission;
+		} catch (Exception e) {
+			return 0.0;
+		}
 	}
 	
 	public double getTotalAmountWhenBuyingFromWholesaler() {
-		double wholesalerPrice = getSpotPrice() - (0.01 * getSpotPrice());
-		return Math.round(amount / wholesalerPrice);
+		try {
+			double wholesalerPrice = getSpotPrice() - (0.01 * getSpotPrice());
+			return amount / wholesalerPrice;
+		} catch (Exception e) {
+			return 0.0;
+		}
 	}
 	
 	public double getTotalAmountWhenSellingToWholesaler() {
-		double wholesalerPrice = getSpotPrice() + (0.01 * getSpotPrice());
-		return Math.round(amount / wholesalerPrice);
+		try {
+			double wholesalerPrice = getSpotPrice() + (0.01 * getSpotPrice());
+			return amount / wholesalerPrice;
+		} catch (Exception e) {
+			return 0.0;
+		}
 	}
 }
