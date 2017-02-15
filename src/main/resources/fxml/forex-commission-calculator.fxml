@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.codecrafts.forexcommissioncalculator.views.FloatingPointTextField?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane minHeight="500.0" minWidth="500.0" xmlns="http://javafx.com/javafx/8.0.111"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="io.codecrafts.forexcommissioncalculator.controllers.ForexCommScreenController">
+    <Pane style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0"
+          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox alignment="CENTER" layoutX="14.0" layoutY="14.0" spacing="10.0">
+            <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                <Label text="Spot Price"/>
+                <FloatingPointTextField fx:id="spotPriceTextField" text="0"/>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                <Label text="Pips"/>
+                <FloatingPointTextField fx:id="pipsTextField" text="200"/>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="48.0" spacing="10.0">
+                <Label text="Comm %"/>
+                <FloatingPointTextField fx:id="commPercTextField" text="6"/>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="48.0" spacing="10.0">
+                <Label text="Quote Amount"/>
+                <FloatingPointTextField fx:id="amountTextField" text="100"/>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="48.0" spacing="10.0">
+                <Button fx:id="buyButton" minWidth="78"
+                        text="Buy">
+                </Button>
+                <Button fx:id="sellButton" minWidth="78"
+                        text="Sell"/>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="86.0" spacing="10.0">
+                <Label text="AUD Total to Customer"/>
+                <Label alignment="CENTER" contentDisplay="TEXT_ONLY" minHeight="50.0"
+                       minWidth="167.0"
+                       style="-fx-border-color: gray; -fx-border-width: 1; -fx-border-radius: 5;"
+                       textAlignment="CENTER" fx:id="audTotalCustomerLabel" text="0">
+                    <font>
+                        <Font name="System Bold" size="32.0"/>
+                    </font>
+                </Label>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="86.0" spacing="10.0">
+                <Label text="AUD Total from Wholesaler"/>
+                <Label alignment="CENTER" contentDisplay="TEXT_ONLY" minHeight="50.0"
+                       minWidth="167.0"
+                       style="-fx-border-color: gray; -fx-border-width: 1; -fx-border-radius: 5;"
+                       textAlignment="CENTER" fx:id="audTotalWholesaleLabel" text="0">
+                    <font>
+                        <Font name="System Bold" size="32.0"/>
+                    </font>
+                </Label>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="86.0" spacing="10.0">
+                <Label text="Difference"/>
+                <Label alignment="CENTER" contentDisplay="TEXT_ONLY" minHeight="50.0"
+                       minWidth="167.0"
+                       style="-fx-border-color: gray; -fx-border-width: 1; -fx-border-radius: 5;"
+                       textAlignment="CENTER" fx:id="difference" text="0">
+                    <font>
+                        <Font name="System Bold" size="32.0"/>
+                    </font>
+                </Label>
+            </HBox>
+        </VBox>
+    </Pane>
+</AnchorPane>
